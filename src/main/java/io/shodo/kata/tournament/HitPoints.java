@@ -7,7 +7,19 @@ public final class HitPoints {
     private final int hitPoints;
 
     public HitPoints(final int hitPoints) {
-        this.hitPoints = hitPoints;
+        this.hitPoints = Math.max(hitPoints, 0);
+    }
+
+    public HitPoints takeDmg(final Weapon weapon) {
+        return new HitPoints(this.hitPoints - weapon.dmg());
+    }
+
+    public boolean isDead() {
+        return hitPoints == 0;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
     }
 
     @Override

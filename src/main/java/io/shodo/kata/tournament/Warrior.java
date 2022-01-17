@@ -10,20 +10,41 @@ public abstract class Warrior<T extends Warrior<T>> {
         throw new RuntimeException("TODO");
     }
 
-    void engage(final Warrior warrior) {
-        throw new RuntimeException("TODO");
+    void engage(final Warrior<?> opponent) {
+        while (true) {
+            this.blow(opponent);
+            if (opponent.isDead()) {
+                return;
+            }
+            opponent.blow(this);
+            if (this.isDead()) {
+                return;
+            }
+        }
     }
 
     public int hitPoints() {
-        throw new RuntimeException("TODO");
+        return hitPoints.getHitPoints();
     }
 
-    public T equip(String equipment) {
+    public T equip(final String equipment) {
         return (T) this;
     }
 
     protected abstract HitPoints initialHitPoints();
 
     protected abstract Weapon weapon();
+
+    public void blow(final Warrior<?> opponent) {
+        opponent.takeDmg(this);
+    }
+
+    public boolean isDead() {
+        return hitPoints.isDead();
+    }
+
+    private void takeDmg(final Warrior<?> from) {
+        this.hitPoints = this.hitPoints.takeDmg(from.weapon());
+    }
 
 }
