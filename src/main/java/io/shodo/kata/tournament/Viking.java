@@ -2,8 +2,8 @@ package io.shodo.kata.tournament;
 
 public class Viking extends Warrior<Viking> {
     @Override
-    protected int initialHitPoints() {
-        return 120;
+    protected HitPoints initialHitPoints() {
+        return new HitPoints(120);
     }
 
     @Override

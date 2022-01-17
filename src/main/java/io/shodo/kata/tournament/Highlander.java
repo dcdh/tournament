@@ -9,7 +9,7 @@ public class Highlander extends Warrior<Highlander> {
     }
 
     @Override
-    protected int initialHitPoints() {
+    protected HitPoints initialHitPoints() {
         throw new RuntimeException("TODO");
     }
 

@@ -9,8 +9,8 @@ public class Swordsman extends Warrior<Swordsman> {
     }
 
     @Override
-    protected int initialHitPoints() {
-        return 100;
+    protected HitPoints initialHitPoints() {
+        return new HitPoints(100);
     }
 
     @Override

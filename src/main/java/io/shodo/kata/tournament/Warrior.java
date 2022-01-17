@@ -2,6 +2,8 @@ package io.shodo.kata.tournament;
 
 public abstract class Warrior<T extends Warrior<T>> {
 
+    private HitPoints hitPoints = initialHitPoints();
+
     public Warrior() {}
 
     public Warrior(final String skill) {
@@ -20,7 +22,7 @@ public abstract class Warrior<T extends Warrior<T>> {
         return (T) this;
     }
 
-    protected abstract int initialHitPoints();
+    protected abstract HitPoints initialHitPoints();
 
     protected abstract Weapon weapon();
 
