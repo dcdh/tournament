@@ -17,4 +17,9 @@ public class Swordsman extends Warrior<Swordsman> {
     protected Weapon weapon() {
         return new OneHandSword();
     }
+
+    @Override
+    public String toString() {
+        return "Swordsman{} " + super.toString();
+    }
 }

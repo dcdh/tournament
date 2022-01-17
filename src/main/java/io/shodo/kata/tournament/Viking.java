@@ -10,4 +10,9 @@ public class Viking extends Warrior<Viking> {
     protected Weapon weapon() {
         return new OneHandAxe();
     }
+
+    @Override
+    public String toString() {
+        return "Viking{} " + super.toString();
+    }
 }

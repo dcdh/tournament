@@ -34,4 +34,11 @@ public final class HitPoints {
     public int hashCode() {
         return Objects.hash(hitPoints);
     }
+
+    @Override
+    public String toString() {
+        return "HitPoints{" +
+                "hitPoints=" + hitPoints +
+                '}';
+    }
 }

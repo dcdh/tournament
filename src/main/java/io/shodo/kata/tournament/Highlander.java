@@ -18,4 +18,8 @@ public class Highlander extends Warrior<Highlander> {
         throw new RuntimeException("TODO");
     }
 
+    @Override
+    public String toString() {
+        return "Highlander{} " + super.toString();
+    }
 }
