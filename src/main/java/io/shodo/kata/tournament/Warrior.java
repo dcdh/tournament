@@ -8,7 +8,7 @@ public abstract class Warrior<T extends Warrior<T>> {
         throw new RuntimeException("TODO");
     }
 
-    void engage(Warrior warrior) {
+    void engage(final Warrior warrior) {
         throw new RuntimeException("TODO");
     }
 
@@ -19,4 +19,9 @@ public abstract class Warrior<T extends Warrior<T>> {
     public T equip(String equipment) {
         return (T) this;
     }
+
+    protected abstract int initialHitPoints();
+
+    protected abstract Weapon weapon();
+
 }

@@ -8,4 +8,14 @@ public class Highlander extends Warrior<Highlander> {
         super(skill);
     }
 
+    @Override
+    protected int initialHitPoints() {
+        throw new RuntimeException("TODO");
+    }
+
+    @Override
+    protected Weapon weapon() {
+        throw new RuntimeException("TODO");
+    }
+
 }
