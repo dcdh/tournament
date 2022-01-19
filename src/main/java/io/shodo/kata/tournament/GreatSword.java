@@ -1,7 +1,6 @@
 package io.shodo.kata.tournament;
 
-public final class OneHandSword implements Weapon {
-
+public class GreatSword implements Weapon {
     @Override
     public boolean isAnAxe() {
         return false;
@@ -9,6 +8,10 @@ public final class OneHandSword implements Weapon {
 
     @Override
     public int dmg(final int turn) {
-        return 5;
+        if (turn % 3 == 0 || turn % 3 == 1) {
+            return 12;
+        } else {
+            return 0;
+        }
     }
 }

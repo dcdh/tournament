@@ -52,7 +52,7 @@ public abstract class Warrior<T extends Warrior<T>> {
         final boolean canCancelDmg = equipments.canCancelDmg(turn, from.weapon());
         System.out.println(String.format("Before taking dmg %s", this.toString()));
         if (!canCancelDmg) {
-            this.hitPoints = this.hitPoints.takeDmg(from.weapon());
+            this.hitPoints = this.hitPoints.takeDmg(turn, from.weapon());
             System.out.println(String.format("After taking dmg %s", this.toString()));
         }
     }

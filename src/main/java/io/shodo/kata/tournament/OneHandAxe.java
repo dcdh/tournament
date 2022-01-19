@@ -8,7 +8,7 @@ public final class OneHandAxe implements Weapon {
     }
 
     @Override
-    public int dmg() {
+    public int dmg(final int turn) {
         return 6;
     }
 }

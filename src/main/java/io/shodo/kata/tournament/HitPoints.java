@@ -10,8 +10,8 @@ public final class HitPoints {
         this.hitPoints = Math.max(hitPoints, 0);
     }
 
-    public HitPoints takeDmg(final Weapon weapon) {
-        return new HitPoints(this.hitPoints - weapon.dmg());
+    public HitPoints takeDmg(final int turn, final Weapon weapon) {
+        return new HitPoints(this.hitPoints - weapon.dmg(turn));
     }
 
     public boolean isDead() {

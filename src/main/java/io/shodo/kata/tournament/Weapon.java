@@ -4,6 +4,6 @@ public interface Weapon {
 
     boolean isAnAxe();
 
-    int dmg();
+    int dmg(int turn);
 
 }

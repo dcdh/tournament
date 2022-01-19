@@ -15,7 +15,7 @@ public class Highlander extends Warrior<Highlander> {
 
     @Override
     protected Weapon weapon() {
-        throw new RuntimeException("TODO");
+        return new GreatSword();
     }
 
     @Override
