@@ -10,6 +10,8 @@ public final class Equipments {
     public void equip(final String equipment) {
         if ("buckler".equals(equipment)) {
             this.equipments.add(new BucklerEquipment());
+        } else if ("armor".equals(equipment)) {
+            this.equipments.add(new ArmorEquipment());
         } else {
             throw new IllegalStateException("Unknown equipment");
         }
