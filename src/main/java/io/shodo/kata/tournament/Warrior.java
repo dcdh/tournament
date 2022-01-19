@@ -4,7 +4,7 @@ public abstract class Warrior<T extends Warrior<T>> {
 
     private HitPoints hitPoints = initialHitPoints();
 
-    private Equipment equipment = new Unequipped();
+    private Equipments equipments = new Equipments();
 
     public Warrior() {}
 
@@ -32,11 +32,7 @@ public abstract class Warrior<T extends Warrior<T>> {
     }
 
     public T equip(final String equipment) {
-        if ("buckler".equals(equipment)) {
-            this.equipment = new BucklerEquipment();
-        } else {
-            throw new IllegalStateException("Unknown equipment");
-        }
+        equipments.equip(equipment);
         return (T) this;
     }
 
@@ -53,7 +49,7 @@ public abstract class Warrior<T extends Warrior<T>> {
     }
 
     private void takeDmg(final int turn, final Warrior<?> from) {
-        final boolean canCancelDmg = equipment.canCancelDmg(turn, from.weapon());
+        final boolean canCancelDmg = equipments.canCancelDmg(turn, from.weapon());
         System.out.println(String.format("Before taking dmg %s", this.toString()));
         if (!canCancelDmg) {
             this.hitPoints = this.hitPoints.takeDmg(from.weapon());
@@ -65,7 +61,7 @@ public abstract class Warrior<T extends Warrior<T>> {
     public String toString() {
         return "Warrior{" +
                 "hitPoints=" + hitPoints +
-                ", equipment=" + equipment +
+                ", equipments=" + equipments +
                 '}';
     }
 }
