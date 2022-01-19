@@ -10,8 +10,15 @@ public final class HitPoints {
         this.hitPoints = Math.max(hitPoints, 0);
     }
 
-    public HitPoints takeDmg(final int turn, final Weapon weapon) {
-        return new HitPoints(this.hitPoints - weapon.dmg(turn));
+    public HitPoints takeDmg(final int turn,
+                             final Weapon attackerWeapon,
+                             final Equipments attackerEquipments,
+                             final Equipments equipments) {
+        final int dmg = attackerWeapon.dmg(turn) - attackerEquipments.reduceDeliveredDamage() - equipments.reduceReceivedDamaged();
+        if (dmg <= 0) {
+            return this;
+        }
+        return new HitPoints(this.hitPoints - dmg);
     }
 
     public boolean isDead() {

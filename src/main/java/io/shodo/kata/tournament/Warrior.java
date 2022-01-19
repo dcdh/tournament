@@ -48,12 +48,14 @@ public abstract class Warrior<T extends Warrior<T>> {
         return hitPoints.isDead();
     }
 
-    private void takeDmg(final int turn, final Warrior<?> from) {
-        final boolean canCancelDmg = equipments.canCancelDmg(turn, from.weapon());
+    private void takeDmg(final int turn, final Warrior<?> attacker) {
+        final boolean canCancelDmg = equipments.canCancelDmg(turn, attacker.weapon());
         System.out.println(String.format("Before taking dmg %s", this.toString()));
         if (!canCancelDmg) {
-            this.hitPoints = this.hitPoints.takeDmg(turn, from.weapon());
-            System.out.println(String.format("After taking dmg %s", this.toString()));
+            this.hitPoints = this.hitPoints.takeDmg(turn, attacker.weapon(), attacker.equipments, equipments);
+            System.out.println(String.format("After  taking dmg %s", this.toString()));
+        } else {
+            System.out.println(String.format("No Damage         %s", this.toString()));
         }
     }
 

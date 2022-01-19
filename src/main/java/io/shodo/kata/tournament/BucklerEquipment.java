@@ -5,9 +5,19 @@ public final class BucklerEquipment implements Equipment {
     private boolean isDestroyed = false;
 
     @Override
-    public boolean canCancelDmg(final int turn, final Weapon opponentWeapon) {
-        isDestroyed = canDestroyBuckler(opponentWeapon) && hasReachedTurnToBeDestroyed(turn);
+    public boolean canCancelDmg(final int turn, final Weapon attackerWeapon) {
+        isDestroyed = canDestroyBuckler(attackerWeapon) && hasReachedTurnToBeDestroyed(turn);
         return !isDestroyed && canCancelDmgForThisTurn(turn);
+    }
+
+    @Override
+    public int reduceReceivedDamaged() {
+        return 0;
+    }
+
+    @Override
+    public int reduceDeliveredDamage() {
+        return 0;
     }
 
     private boolean hasReachedTurnToBeDestroyed(final int turn) {

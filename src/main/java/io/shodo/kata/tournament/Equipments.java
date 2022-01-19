@@ -17,10 +17,22 @@ public final class Equipments {
         }
     }
 
-    public boolean canCancelDmg(int turn, Weapon opponentWeapon) {
+    public boolean canCancelDmg(int turn, Weapon attackerWeapon) {
         return equipments.stream()
-                .map(equipment -> equipment.canCancelDmg(turn, opponentWeapon))
+                .map(equipment -> equipment.canCancelDmg(turn, attackerWeapon))
                 .reduce(Boolean.FALSE, Boolean::logicalOr);
+    }
+
+    public int reduceReceivedDamaged() {
+        return equipments.stream()
+                .map(Equipment::reduceReceivedDamaged)
+                .reduce(0, Integer::sum);
+    }
+
+    public int reduceDeliveredDamage() {
+        return equipments.stream()
+                .map(Equipment::reduceDeliveredDamage)
+                .reduce(0, Integer::sum);
     }
 
     @Override
